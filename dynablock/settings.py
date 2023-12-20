@@ -39,8 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
+    'time_management.apps.TimeManagementConfig',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +79,7 @@ WSGI_APPLICATION = 'dynablock.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -128,3 +127,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
+
+AUTH_USER_MODEL = 'time_management.CustomUser'
